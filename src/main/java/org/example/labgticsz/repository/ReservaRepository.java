@@ -1,4 +1,7 @@
 package org.example.labgticsz.repository;
 
-public interface ReservaRepository {
+import org.example.labgticsz.entity.Reserva;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
 }

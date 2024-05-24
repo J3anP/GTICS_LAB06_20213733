@@ -1,4 +1,8 @@
 package org.example.labgticsz.repository;
 
-public interface MesaRepository {
+import org.example.labgticsz.entity.Mesa;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MesaRepository extends JpaRepository<Mesa, Integer> {
+
 }

@@ -14,7 +14,7 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idrol",nullable = false)
-    private int idmesa;
+    private int idrol;
 
     @Column(name="name",nullable = false)
     @Size(min=3, max=45, message="El campo tiene que estar entre 3 y 45 caracteres.")
