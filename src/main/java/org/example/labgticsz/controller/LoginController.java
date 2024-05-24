@@ -13,7 +13,7 @@ public class LoginController {
         if(session.getAttribute("usuario") == null){
             return "loginFrm";
         }else{
-            return "redirect:/personaje/list";
+            return "redirect:/home/list";
         }
     }
 }
