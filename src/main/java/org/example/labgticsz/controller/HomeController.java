@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/home")
 public class HomeController {
     final MesaRepository mesaRepository;
     final ReservaRepository reservaRepository;
