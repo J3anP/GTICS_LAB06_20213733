@@ -1,14 +1,16 @@
 package org.example.labgticsz.controller;
 
+import jakarta.validation.Valid;
+import org.example.labgticsz.entity.Mesa;
 import org.example.labgticsz.repository.MesaRepository;
 import org.example.labgticsz.repository.ReservaRepository;
 import org.example.labgticsz.repository.RolRepository;
 import org.example.labgticsz.repository.UserRepository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype   .Controller;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/home")
@@ -35,5 +37,22 @@ public class HomeController {
             model.addAttribute("search",search);
         }
         return "list";
+    }
+
+    @PostMapping("/save")
+    public String guardarPersonaje(@ModelAttribute("mesa") @Valid Mesa mesa, BindingResult bindingResult,
+                                   RedirectAttributes attr) {
+
+        if (bindingResult.hasErrors()) {
+            return "frmMesa";
+        } else {
+            if (mesa.getIdmesa() == 0) {
+                attr.addFlashAttribute("msg", "Mesa agregada exitosamente");
+            } else {
+                attr.addFlashAttribute("msg", "Mesa actualizado exitosamente");
+            }
+            mesaRepository.save(mesa);
+            return "redirect:/home/list";
+        }
     }
 }
