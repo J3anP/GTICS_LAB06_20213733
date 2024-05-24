@@ -66,7 +66,7 @@ public class WebSecurityConfig {
 
         http.authorizeHttpRequests()
                 .requestMatchers("/home", "/home/list").hasAnyAuthority("CLIENTE", "GERENTE","ADMIN")
-                .requestMatchers("/home/new","/home/edit").hasAnyAuthority("GERENTE","ADMIN")
+                .requestMatchers("/home/new","/home/edit").hasAnyAuthority("ADMIN")
                 .requestMatchers("/home/delete").hasAnyAuthority("ADMIN")
                 .anyRequest().permitAll();
 
